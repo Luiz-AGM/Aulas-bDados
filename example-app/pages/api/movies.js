@@ -8,6 +8,7 @@ export default async function (req, res) {
         const movies = await db.collection("movies")
             .find({ year: 2010 })
             .sort({ title: 1 })
+            .limit(15)
             .toArray();
         
         res.json(movies);
